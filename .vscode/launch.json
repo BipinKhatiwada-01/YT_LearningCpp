@@ -1,20 +1,30 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "gdb",
-      "request": "launch",
-      "name": "Debug (type path)",
-      "target": "${workspaceFolder}/${input:binaryPath}",
-      "cwd": "${workspaceFolder}",
-      "valuesFormatting": "prettyPrinters"
-    }
-  ],
-  "inputs": [
-    {
-      "id": "binaryPath",
-      "type": "promptString",
-      "description": "Path to binary, relative to workspace root"
-    }
-  ]
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug C++",
+            "type": "cppdbg",
+            "request": "launch",
+
+            "program": "${workspaceFolder}/${input:binaryPath}",
+
+            "cwd": "${workspaceFolder}",
+
+            "MIMode": "gdb",
+
+            "miDebuggerPath": "/usr/bin/gdb",
+
+            "stopAtEntry": false,
+
+            "externalConsole": false
+        }
+    ],
+
+    "inputs": [
+        {
+            "id": "binaryPath",
+            "type": "promptString",
+            "description": "Path to binary, relative to workspace root"
+        }
+    ]
 }
